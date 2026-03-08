@@ -274,14 +274,8 @@ export default function App() {
   const [tab, setTab] = useState("trade");
   const [orderType, setOrderType] = useState("BUY");
   const [amount, setAmount] = useState("500");
-  const [pulse, setPulse] = useState(true);
   const prevPrice = useRef(price);
   const [priceDir, setPriceDir] = useState("up");
-
-  useEffect(() => {
-    const id = setInterval(() => setPulse(p => !p), 600);
-    return () => clearInterval(id);
-  }, []);
 
   useEffect(() => {
     if (price > prevPrice.current) setPriceDir("up");
